@@ -5,7 +5,9 @@ import dash_html_components as html
 from random import random
 import plotly
 datetime_list = []
-rate_list = []
+eur_rate_list = []
+gbp_rate_list = []
+kwd_rate_list = []
 
 app = dash.Dash(__name__)
 app.layout = html.Div(
@@ -13,7 +15,7 @@ app.layout = html.Div(
         dcc.Graph(id='live-update-graph-scatter', animate=True),
         dcc.Interval(
             id='interval-component',
-            interval=1*1000
+            interval=1*8000
         )
     ])
 )
@@ -36,17 +38,33 @@ def update_graph_scatter():
         rate =  request.json()['rates'][symbol]["rate"]
         timestamp =  request.json()['rates'][symbol]["timestamp"]
         datetime_list.append(timestamp)
-        rate_list.append(rate)
-        print (rate_list)
-        print (datetime_list)
+
+        if symbol == 'USDEUR':
+            eur_rate_list.append(rate)
+        if symbol == 'USDGBP':
+            gbp_rate_list.append(rate)
+        if symbol == 'USDKWD':
+            kwd_rate_list.append(rate)
 
         traces.append(plotly.graph_objs.Scatter(
             x=datetime_list,
-            y=rate_list,
-            mode= 'lines+markers'
-            ))
+            y=eur_rate_list,
+            mode='lines+markers'
+        ))
 
-    return {'data': traces}
+        traces.append(plotly.graph_objs.Scatter(
+            x=datetime_list,
+            y=gbp_rate_list,
+            mode='lines+markers'
+        ))
+
+        traces.append(plotly.graph_objs.Scatter(
+            x=datetime_list,
+            y=kwd_rate_list,
+            mode='lines+markers'
+        ))
+
+        return {'data': traces}
 
 if __name__ == '__main__':
     app.run_server(debug=True)
