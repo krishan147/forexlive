@@ -41,26 +41,30 @@ def update_graph_scatter():
 
         if symbol == 'USDEUR':
             eur_rate_list.append(rate)
-        if symbol == 'USDGBP':
+        if symbol == 'USDZAR':
             gbp_rate_list.append(rate)
-        if symbol == 'USDKWD':
+        if symbol == 'USDAUD':
             kwd_rate_list.append(rate)
 
+        print (eur_rate_list)
+        print (gbp_rate_list)
+        print (kwd_rate_list)
+
         traces.append(plotly.graph_objs.Scatter(
-            x=datetime_list,
-            y=eur_rate_list,
+            x = datetime_list,
+            y = eur_rate_list,
             mode='lines+markers'
         ))
 
         traces.append(plotly.graph_objs.Scatter(
-            x=datetime_list,
-            y=gbp_rate_list,
+            x = datetime_list,
+            y = gbp_rate_list,
             mode='lines+markers'
         ))
 
         traces.append(plotly.graph_objs.Scatter(
-            x=datetime_list,
-            y=kwd_rate_list,
+            x = datetime_list,
+            y = kwd_rate_list,
             mode='lines+markers'
         ))
 
@@ -68,3 +72,6 @@ def update_graph_scatter():
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+
+# x = datetime_list,
+# y = eur_rate_list,
