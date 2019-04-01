@@ -76,9 +76,6 @@ def update_graph_scatter():
             mode= 'lines+markers'
             ))
 
-   # return {'data': traces}
-
-
     return {'data': traces,'layout' : go.Layout(xaxis=dict(range=[min(gbp_timestamp_list),max(gbp_timestamp_list)]),
                                                 yaxis=dict(range=[min(merged_rate_list),max(merged_rate_list)]),)}
 
