@@ -1,1 +1,1 @@
-Forex API with live barchart WIP
+Forex API with live line chart WIP
