@@ -1,1 +1,1 @@
-Forex API with live line chart WIP
+Forex API with live line chart
