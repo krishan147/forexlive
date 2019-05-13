@@ -1,1 +1,1 @@
-Forex API with live line chart
+Forex API with live bar chart
