@@ -68,8 +68,6 @@ def update_graph_scatter():
             gbp_timestamp_list.append(gbp_time)
             if len(gbp_rate_list) > 1:
 
-# krishan need to figure out how to create averages and then get hem to come up in 3 different lists? not sure....
-
                 temp_gbp_rate_list = gbp_rate_list[1:]
                 temp_gbp_divide_rate_list = gbp_divide_rate_list[:-1]
                 cut_gbp_timestamp_list = gbp_timestamp_list[1:]
